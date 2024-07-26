@@ -1,28 +1,3 @@
-<!-- ---
-# https://vitepress.dev/reference/default-theme-home-page
-layout: home
-
-hero:
-  name: "OlaCV Developer Documentation"
-  text: "Manage your .CV domains with the Ola.CV API"
-  tagline: My great project tagline
-  actions:
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
-
-features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
---- -->
-
 # Markdown Extension Examples
 
 This page demonstrates some of the built-in markdown extensions provided by VitePress.
@@ -85,7 +60,7 @@ This is a details block.
 
 **Output**
 
-::: info
+::: info Before you begin
 This is an info box.
 :::
 
@@ -108,5 +83,3 @@ This is a details block.
 ## More
 
 Check out the documentation for the [full list of markdown extensions](https://vitepress.dev/guide/markdown).
-
-

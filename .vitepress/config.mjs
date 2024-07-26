@@ -1,9 +1,14 @@
-import { defineConfig } from 'vitepress'
+import { defineConfigWithTheme } from "vitepress";
+import config from '@hempworks/pilgrim/config'
 
 // https://vitepress.dev/reference/site-config
-export default defineConfig({
+export default defineConfigWithTheme({
+  extends: config,
   title: "API Docs",
   description: "Manage your .CV domains with the Ola.CV API",
+  base: '/',
+  cleanUrls: false,
+  srcDir: 'src',
   head: [
     ['link', {rel: 'icon', href: '/favicon.png'}]
   ],
@@ -17,21 +22,38 @@ export default defineConfig({
 
     nav: [
       { text: 'Guide', link: '/markdown-examples' },
-      { text: 'Sign in', link: 'https://olacv.test' }
+      { text: 'Sign in', link: 'https://developer.ola.cv' }
+    ],
+
+    versions: [
+      {
+        text: 'v1.x',
+        link: 'https://docs.ola.cv/api/v1',
+        current: true,
+      },
+      {
+        text: 'v0.x',
+        link: 'https://docs.ola.cv/api/v1',
+      },
     ],
 
     sidebar: [
       {
         text: 'Introduction',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'API Basics', link: '/markdown-examples' },
+          { text: 'Authentication', link: '/api-examples' }
         ]
       }
     ],
 
     search: {
       provider: 'local',
+      options: {
+        placeholder: 'Search Docs...',
+        miniSearch: {
+        }
+      },
     },
   }
 })
