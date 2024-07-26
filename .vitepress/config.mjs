@@ -21,7 +21,7 @@ export default defineConfigWithTheme({
     },
 
     nav: [
-      { text: 'Guide', link: '/markdown-examples' },
+      { text: 'Guide', link: '/index' },
       { text: 'Sign in', link: 'https://developer.ola.cv' }
     ],
 
@@ -41,8 +41,16 @@ export default defineConfigWithTheme({
       {
         text: 'Introduction',
         items: [
-          { text: 'API Basics', link: '/markdown-examples' },
-          { text: 'Authentication', link: '/api-examples' }
+          { text: 'API Basics', link: '/index' },
+          { text: 'Authentication', link: '/authentication' },
+          { text: 'Errors', link: '/errors' }
+        ]
+      },
+      {
+        text: 'API Endpoints',
+        items: [
+          { text: 'Contacts', link: '/api/contacts' },
+          { text: 'Domains', link: '/api/domains' }
         ]
       }
     ],
