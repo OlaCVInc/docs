@@ -1,6 +1,14 @@
 # Contacts
 
-The contacts API endpoints allow you to provision and manage individual or organizational social information identifiers known as `contacts`.
+The contacts API endpoints allow you to provision and manage individual or organizational registrants and contacts for [domains](/api/domains).
+
+## Request Headers
+
+|     |  |
+| -------- | ------- |
+| **authorization**<br>*string* | Set value to `Bearer API_TOKEN`.    |
+| **content-type**<br>*string*    | Set value to `application/json`.    |
+| **accept**<br>*string*    | Set value to `application/json`.    |
 
 ## Create Contact
 
@@ -8,14 +16,6 @@ Create a new contact on your account.
 
 ::: info POST /api/v1/contacts
 :::
-
-### Headers
-
-|     |  |
-| -------- | ------- |
-| **authorization**<br>*string* | Set value to `Bearer API_TOKEN`.    |
-| **content-type**<br>*string*    | Set value to `application/json`.    |
-| **accept**<br>*string*    | Set value to `application/json`.    |
 
 ### Body Parameters
 
@@ -32,7 +32,7 @@ Create a new contact on your account.
 | **postcode**<br>*string*    | Contact's postcode / zip code / postal code.    |
 | **country**<br>*string*    | Contact's country specified in the 2-letter ISO 3166 format e.g `US` for United States of America .    |
 
-### Sample Request
+### Sample [Create] Request
 
 ```shell
 curl https://developer.ola.cv/api/v1/contacts \
@@ -43,7 +43,7 @@ curl https://developer.ola.cv/api/v1/contacts \
 -d '{"name": "John Doe", "email": "jdoe@example.com", "phone": "+1 818 3000006", "organization": "Acme, Inc.", "address": "124, Bourdillon Boulevard", "city": "Round Rock", "postcode": "78000", "country": "US"}'
 ```
 
-### Sample Success Response
+### Sample [Create] Response
 
 ```json
 {
@@ -67,8 +67,6 @@ curl https://developer.ola.cv/api/v1/contacts \
 }
 ```
 
-### Sample Error Response
-
 Please see the [errors page](/errors) for likely errors.
 
 ## Fetch Contact
@@ -78,21 +76,13 @@ Get details of a contact on your account.
 ::: info GET /api/v1/contacts/:id
 :::
 
-### Headers
-
-|     |  |
-| -------- | ------- |
-| **authorization**<br>*string* | Set value to `Bearer API_TOKEN`.    |
-| **content-type**<br>*string*    | Set value to `application/json`.    |
-| **accept**<br>*string*    | Set value to `application/json`.    |
-
 ### Path Parameters
 
 |     |  |
 | -------- | ------- |
 | **id**<br>*string* | Set value to the ID of the contact to fetch.    |
 
-### Sample Request
+### Sample [Fetch] Request
 
 ```shell
 curl https://developer.ola.cv/api/v1/contacts/01j3j7h3c3mxr05g1jgmb3st2a \
@@ -101,7 +91,7 @@ curl https://developer.ola.cv/api/v1/contacts/01j3j7h3c3mxr05g1jgmb3st2a \
 -H 'Content-Type: application/json'
 ```
 
-### Sample Success Response
+### Sample [Fetch] Response
 
 ```json
 {
@@ -125,8 +115,6 @@ curl https://developer.ola.cv/api/v1/contacts/01j3j7h3c3mxr05g1jgmb3st2a \
 }
 ```
 
-### Sample Error Response
-
 Please see the [errors page](/errors) for likely errors.
 
 ## List Contacts
@@ -136,14 +124,6 @@ Get a collection of the contacts on your account.
 ::: info GET /api/v1/contacts
 :::
 
-### Headers
-
-|     |  |
-| -------- | ------- |
-| **authorization**<br>*string* | Set value to `Bearer API_TOKEN`.    |
-| **content-type**<br>*string*    | Set value to `application/json`.    |
-| **accept**<br>*string*    | Set value to `application/json`.    |
-
 ### Query Parameters
 
 |     |  |
@@ -151,7 +131,7 @@ Get a collection of the contacts on your account.
 | **per_page**<br>*integer* | Specify how many records you want to retrieve per page. If not specified we use a default value of 20.    |
 | **page**<br>*integer*    | Specify exactly what page you want to retrieve. If not specified we use a default value of 1.    |
 
-### Sample Request
+### Sample [List] Request
 
 ```shell
 curl https://developer.ola.cv/api/v1/contacts \
@@ -160,7 +140,7 @@ curl https://developer.ola.cv/api/v1/contacts \
 -H 'Content-Type: application/json'
 ```
 
-### Sample Success Response
+### Sample [List] Response
 
 ```json
 {
@@ -210,8 +190,6 @@ curl https://developer.ola.cv/api/v1/contacts \
 }
 ```
 
-### Sample Error Response
-
 Please see the [errors page](/errors) for likely errors.
 
 ## Delete Contact
@@ -221,21 +199,13 @@ Delete a contact on your account.
 ::: info DELETE /api/v1/contacts/:id
 :::
 
-### Headers
-
-|     |  |
-| -------- | ------- |
-| **authorization**<br>*string* | Set value to `Bearer API_TOKEN`.    |
-| **content-type**<br>*string*    | Set value to `application/json`.    |
-| **accept**<br>*string*    | Set value to `application/json`.    |
-
 ### Path Parameters
 
 |     |  |
 | -------- | ------- |
 | **id**<br>*string* | Set value to the ID of the contact to delete.    |
 
-### Sample Request
+### Sample [Delete] Request
 
 ```shell
 curl https://developer.ola.cv/api/v1/contacts/01j3j7h3c3mxr05g1jgmb3st2a \
@@ -245,7 +215,7 @@ curl https://developer.ola.cv/api/v1/contacts/01j3j7h3c3mxr05g1jgmb3st2a \
 -X DELETE
 ```
 
-### Sample Success Response
+### Sample [Delete] Response
 
 ```json
 {
@@ -253,14 +223,6 @@ curl https://developer.ola.cv/api/v1/contacts/01j3j7h3c3mxr05g1jgmb3st2a \
     "id": "01j3j7h3c3mxr05g1jgmb3st2a",
   },
   "message": "Contact deleted successfully."
-}
-```
-
-### Sample Error Response
-
-```json
-{
-  "message": "Contact could not be deleted, it is linked or prohibited from deletion."
 }
 ```
 
