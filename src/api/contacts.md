@@ -40,7 +40,16 @@ curl https://developer.ola.cv/api/v1/contacts \
 -H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
 -H 'Content-Type: application/json' \
 -X POST \
--d '{"name": "John Doe", "email": "jdoe@example.com", "phone": "+1 818 3000006", "organization": "Acme, Inc.", "address": "124, Bourdillon Boulevard", "city": "Round Rock", "postcode": "78000", "country": "US"}'
+-d '{
+	"name": "John Doe", 
+	"email": "jdoe@example.com", 
+	"phone": "+1 818 3000006", 
+	"organization": "Acme, Inc.", 
+	"address": "124, Bourdillon Boulevard", 
+	"city": "Round Rock", 
+	"postcode": "78000", 
+	"country": "US"
+}'
 ```
 
 ### Sample [Create] Response

@@ -31,7 +31,9 @@ curl https://developer.ola.cv/api/v1/domains/check \
 -H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
 -H 'Content-Type: application/json' \
 -X POST \
--d '{"domains": ["domain.cv", "anotherdomain.cv"]}' 
+-d '{
+  "domains": ["somedomain.cv", "anotherdomain.cv"]
+}' 
 ```
 
 ### Sample [Check] Response
@@ -39,19 +41,17 @@ curl https://developer.ola.cv/api/v1/domains/check \
 ```json
 {
   "data": {
-    "domain.cv": {
-      "domain": "domain.cv",
-      "available": true,
-      "premium": false,
-      "registration_fee": 2000
+    "somedomain.cv": {
+      "domain": "somedomain.cv",
+      "available": false
     },
     "anotherdomain.cv": {
       "domain": "anotherdomain.cv",
       "available": true,
       "premium": false,
-      "registration_fee": 10
-    },
-    "currency": "USD"
+      "registration_fee": 10,
+      "currency": "USD"
+    }
   },
   "message": "All domain check(s) completed successfully."
 }
@@ -75,6 +75,12 @@ Register a domain name on your account, [preferably after checking for its avail
 | **admin**<br>*string* | [Optional] The ID of an existing [contact](/api/contacts) as administrative contact for the domain.    |
 | **tech**<br>*string* | [Optional] The ID of an existing [contact](/api/contacts) as technical contact for the domain.    |
 | **billing**<br>*string* | [Optional] The ID of an existing [contact](/api/contacts) as billing contact for the domain.    |
+| **nameservers**<br>*array* | [Optional] An array of nameservers, or authoritative DNS servers, to attach to the domain name. Ensure each nameserver is a valid nameserver obtained from a DNS provider, or leave out the `nameservers` parameter from request altogether.    |
+
+
+::: tip Before you make this request!
+Your [developer account](https://developer.ola.cv/dashboard) must be active, and your account wallet funded for this request to complete successfully. You will be automatically charged the registration fee upon a successful request, so please proceed carefully. 
+:::
 
 ### Sample [Register] Request
 
@@ -84,7 +90,11 @@ curl https://developer.ola.cv/api/v1/domains \
 -H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
 -H 'Content-Type: application/json' \
 -X POST \
--d '{"name": "domain.cv", "registrant": "01j3g1bptyg0ynstnb330v0nx8"}'
+-d '{
+  "name": "mydomain.cv", 
+  "registrant": "01j3g1bptyg0ynstnb330v0nx8", 
+  "nameservers": ["brad.ns.cloudflare.com", "coco.ns.cloudflare.com"]
+}'
 ```
 
 ### Sample [Register] Response
@@ -93,7 +103,7 @@ curl https://developer.ola.cv/api/v1/domains \
 {
   "data": {
     "id": "01j3nap0cs9xccpyybbkhztzzq",
-    "domain": "domain.cv",
+    "domain": "mydomain.cv",
     "auto_renew": true,
     "registered_at": "2024-07-25T16:13:13.000000Z",
     "expires_at": "2025-07-25T16:13:13.000000Z",
@@ -136,7 +146,7 @@ curl https://developer.ola.cv/api/v1/domains \
   "data": [
     {
       "id": "01j3nap0cs9xccpyybbkhztzzq",
-      "domain": "domain.cv",
+      "domain": "somedomain.cv",
       "auto_renew": true,
       "registered_at": "2024-07-25T16:13:13.000000Z",
       "expires_at": "2025-07-25T16:13:13.000000Z",
