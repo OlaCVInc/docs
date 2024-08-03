@@ -5,7 +5,7 @@ Learn how to integrate our APIs into your applications.
 ## API Basics
 
 ::: info Before you begin!
-You should [create a free ola.cv developer account](https://ola.cv/app/login), or make sure you belong to a developer account as a team member. Grab or create a new API key for your account so you can make API calls. 
+You should [create a free ola.cv developer account](https://developer.ola.cv), or make sure you belong to a developer account as a team member. Grab or create a new API key for your account so you can make API calls. 
 :::
 
 The ola.cv API is mostly RESTful and organized by the resources your account own and have access to, with very few exceptions.
