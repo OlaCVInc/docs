@@ -28,12 +28,12 @@ export default defineConfigWithTheme({
     versions: [
       {
         text: 'v1.x',
-        link: 'https://docs.ola.cv/api/v1',
+        link: 'https://docs.ola.cv',
         current: true,
       },
       {
         text: 'v0.x',
-        link: 'https://docs.ola.cv/api/v1',
+        link: 'https://docs.ola.cv',
       },
     ],
 
