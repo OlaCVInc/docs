@@ -50,7 +50,9 @@ export default defineConfigWithTheme({
         text: 'API Endpoints',
         items: [
           { text: 'Contacts', link: '/api/contacts' },
-          { text: 'Domains', link: '/api/domains' }
+          { text: 'Domains', link: '/api/domains' },
+          { text: 'Zones', link: '/api/zones' },
+          { text: 'DNS Records', link: '/api/dns-records' }
         ]
       }
     ],
