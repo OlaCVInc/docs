@@ -17,6 +17,12 @@ Check for the availability of domain(s) for possible registration or creation a 
 ::: info POST /api/v1/domains/check
 :::
 
+### Query Parameters
+
+|     |  |
+| -------- | ------- |
+| **fees**<br>*string* | Specify the type of fees you want included in the response. Values can be one of `registration` or `all`. If not specified we use a default value of registration.    |
+
 ### Body Parameters
 
 |     |  |
@@ -50,6 +56,47 @@ curl https://developer.ola.cv/api/v1/domains/check \
       "available": true,
       "premium": false,
       "registration_fee": 10,
+      "currency": "USD"
+    }
+  },
+  "message": "All domain check(s) completed successfully."
+}
+```
+
+### Sample [Check] Request (with Fees)
+
+```shell
+curl https://developer.ola.cv/api/v1/domains/check?fees=all \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
+-H 'Content-Type: application/json' \
+-X POST \
+-d '{
+  "domains": ["somedomain.cv", "anotherdomain.cv"]
+}' 
+```
+
+### Sample [Check] Response (with Fees)
+
+```json
+{
+  "data": {
+    "somedomain.cv": {
+      "domain": "somedomain.cv",
+      "available": false,
+      "renewal_fee": 10.5,
+      "transfer_fee": 10.5,
+      "redemption_fee": 10.5,
+      "currency": "USD"
+    },
+    "anotherdomain.cv": {
+      "domain": "anotherdomain.cv",
+      "available": true,
+      "premium": false,
+      "registration_fee": 10,
+      "renewal_fee": 10,
+      "transfer_fee": 10,
+      "redemption_fee": 10,
       "currency": "USD"
     }
   },
