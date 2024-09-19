@@ -231,7 +231,7 @@ Please see the [errors page](/errors) for likely errors.
 
 Delete a DNS record in a zone on your account.
 
-::: info POST /api/v1/zones/:zoneid/records/:recordid
+::: info DELETE /api/v1/zones/:zoneid/records/:recordid
 :::
 
 ### Path Parameters
