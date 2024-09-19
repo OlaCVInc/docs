@@ -269,7 +269,7 @@ Please see the [errors page](/errors) for likely errors.
 
 Update an existing domain name on your account, for example, set new nameservers, registrant or contacts.
 
-::: info PUT /api/v1/domains/:id
+::: info POST /api/v1/domains/:id
 :::
 
 ### Body Parameters
@@ -290,7 +290,7 @@ curl https://developer.ola.cv/api/v1/domains \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
 -H 'Content-Type: application/json' \
--X PUT \
+-X POST \
 -d '{
   "name": "mydomain.cv", 
   "registrant": "01j3g1bptyg0ynstnb330v0nx8", 
