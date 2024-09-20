@@ -63,7 +63,7 @@ curl https://developer.ola.cv/api/v1/zones \
     "per_page": 20,
     "prev_page_url": null,
   },
-  "message": "Zones retrieved successfully."
+  "message": "DNS zones retrieved successfully."
 }
 ```
 
@@ -107,7 +107,51 @@ curl https://developer.ola.cv/api/v1/zones/01j5nf5aq9hgfsgawf3a8jhda8 \
     "created_at": "2024-08-14T14:08:22.000000Z",
     "updated_at": "2024-08-15T16:53:30.000000Z"
   },
-  "message": "Zone retrieved successfully."
+  "message": "DNS zne retrieved successfully."
+}
+```
+
+Please see the [errors page](/errors) for likely errors.
+
+## Fetch DNS Zone for Domain
+
+Get details of the DNS zone for a domain on your account.
+
+::: info GET /api/v1/domains/:id/zone
+:::
+
+### Path Parameters
+
+|     |  |
+| -------- | ------- |
+| **id**<br>*string* | Set value to the ID of the domain to fetch zone for.    |
+
+### Sample [Fetch] Domain Zone Request
+
+```shell
+curl https://developer.ola.cv/api/v1/domains/01j85j9297t9xcp3snpeqz4cv7/zone \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
+-H 'Content-Type: application/json'
+```
+
+### Sample [Fetch] Domain Zone Response
+
+```json
+{
+  "data": {
+    "id": "01j5nf5aq9hgfsgawf3a8jhda8",
+    "name": "anotherdomain.cv",
+    "status": "active",
+    "name_servers": [
+      "brad.ns.cloudflare.com",
+      "coco.ns.cloudflare.com"
+    ],
+    "activated_at": "2024-08-15T16:53:30.000000Z",
+    "created_at": "2024-08-14T14:08:22.000000Z",
+    "updated_at": "2024-08-15T16:53:30.000000Z"
+  },
+  "message": "DNS zone retrieved successfully."
 }
 ```
 
