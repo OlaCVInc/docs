@@ -52,7 +52,8 @@ export default defineConfigWithTheme({
           { text: 'Contacts', link: '/api/contacts' },
           { text: 'Domains', link: '/api/domains' },
           { text: 'Zones', link: '/api/zones' },
-          { text: 'DNS Records', link: '/api/dns-records' }
+          { text: 'DNS Records', link: '/api/dns-records' },
+          { text: 'Testing', link: '/api/testing' }
         ]
       }
     ],
