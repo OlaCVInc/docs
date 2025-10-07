@@ -281,12 +281,13 @@ Update an existing domain name on your account, for example, set new nameservers
 | **admin**<br>*string* | [Optional] The ID of an existing [contact](/api/contacts) as administrative contact for the domain.    |
 | **tech**<br>*string* | [Optional] The ID of an existing [contact](/api/contacts) as technical contact for the domain.    |
 | **billing**<br>*string* | [Optional] The ID of an existing [contact](/api/contacts) as billing contact for the domain.    |
+| **auto_renew**<br>*boolean* | [Optional] Set whether the domain name should be auto renewed at expiration. This is dependent on availability of fund in your developer account wallet.    |
 | **nameservers**<br>*array* | [Optional] An array of nameservers, or authoritative DNS servers, to attach to the domain name. Ensure each nameserver is a valid nameserver obtained from a DNS provider, or leave out the `nameservers` parameter from request altogether.    |
 
 ### Sample [Update] Request
 
 ```shell
-curl https://developer.ola.cv/api/v1/domains \
+curl https://developer.ola.cv/api/v1/domains/01j3n95gb85cwhe8k2j659x3s0 \
 -H 'Accept: application/json' \
 -H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
 -H 'Content-Type: application/json' \
@@ -312,6 +313,53 @@ curl https://developer.ola.cv/api/v1/domains \
     "updated_at": "2024-07-25T16:13:14.000000Z"
   },
   "message": "Domain updated successfully."
+}
+```
+
+Please see the [errors page](/errors) for likely errors.
+
+## Renew Domain 
+
+Renew an existing domain name on your account for 1 more year from the current expiration date.
+
+::: info POST /api/v1/domains/:id/renew
+:::
+
+### Body Parameters
+
+|     |  |
+| -------- | ------- |
+| **name**<br>*string* | The `.cv` domain name to renew.    |
+| **registrant**<br>*string* | The ID of an existing [contact](/api/contacts) as registrant for the domain.    |
+
+### Sample [Renew] Request
+
+```shell
+curl https://developer.ola.cv/api/v1/domains/01j3n95gb85cwhe8k2j659x3s0/renew \
+-H 'Accept: application/json' \
+-H 'Authorization: Bearer eOHtWjgrRk4y20C58w25Y0FF0c8gEjvfo96rk17K6d3fe0b4' \
+-H 'Content-Type: application/json' \
+-X POST \
+-d '{
+  "name": "mydomain.cv", 
+  "registrant": "01j3g1bptyg0ynstnb330v0nx8"
+}'
+```
+
+### Sample [Renew] Response
+
+```json
+{
+  "data": {
+    "id": "01j3nap0cs9xccpyybbkhztzzq",
+    "domain": "mydomain.cv",
+    "auto_renew": false,
+    "registered_at": "2024-07-25T16:13:13.000000Z",
+    "expires_at": "2025-07-25T16:13:13.000000Z",
+    "created_at": "2024-07-25T16:13:14.000000Z",
+    "updated_at": "2024-07-25T16:13:14.000000Z"
+  },
+  "message": "Domain renewed successfully."
 }
 ```
 
